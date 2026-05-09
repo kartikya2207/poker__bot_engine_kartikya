@@ -539,18 +539,18 @@ class PokerMatch():
             print(f"  Max Response Time: {max_query:.5f}s")
 
         print(f"\nTotal Match Time: {time.perf_counter() - start_time:.3f}s")
-        self.final_players = players   # <-- ADD THIS LINE
-
-        for player in players:
-            player.stop()
-
-        return players   # <-- ADD THIS LINE
+        self.final_players = players
 
         name = f"{self.timestamp.strftime('%Y%m%d-%H%M%S-%f')}.glog"
         print('Writing game log to', name)
         os.makedirs(GAME_LOG_FOLDER, exist_ok=True)
         with open(os.path.join(GAME_LOG_FOLDER, name), 'w') as log_file:
             log_file.write('\n'.join(self.log))
+
+        for player in players:
+            player.stop()
+
+        return players
 
 import itertools
 

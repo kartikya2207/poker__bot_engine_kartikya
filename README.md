@@ -13,7 +13,7 @@ The competition featured a unique poker variant called **"Sneak Peek Hold'em"**,
 My final bot implementation utilizes a combination of mathematical equity calculations and heuristic-based decision making:
 
 - **Pre-flop:** Uses a lookup table (`PF`) of winning probabilities for all 169 possible starting hands to decide whether to fold, call, or raise.
-- **Equity Engine:** Implements a Monte Carlo simulation (`exact_equity` and `monte_carlo_equity`) to estimate the hand's strength against a range of possible opponent hands, accounting for the information gained during the auction.
+- **Equity Engine:** Implements a Monte Carlo simulation (`exact_equity` and `no_info_equity`) to estimate the hand's strength against a range of possible opponent hands, accounting for the information gained during the auction.
 - **Auction Logic:** A strategic bidding system that values information based on the current hand strength and pot size.
 - **Hand Evaluation:** Optimized `score5` and `best_hand` functions for fast ranking of poker hands using bitmask-like scoring.
 

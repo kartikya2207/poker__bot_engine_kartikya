@@ -2,10 +2,11 @@ PYTHON_CMD = "python"
 
 # Define ALL bots here
 BOTS = [
-    ("BotA", "./bot_2.py"),
+    # Add bot entries here. Only bot_final.py is included in the repo.
+    # ("BotA", "./bot_2.py"),
     ("BotB", "./bot_final.py"),
-    ("BotC", "./bot_1.py"),
-    ("BotD", "./bot_moghe2.py"),
+    # ("BotC", "./bot_1.py"),
+    # ("BotD", "./bot_moghe2.py"),
 ]
 
 # Tournament settings

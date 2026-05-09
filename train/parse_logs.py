@@ -240,8 +240,10 @@ def parse_log(content):
             current['board'] = board_cards
             current['street'] = street_name
             street = street_name
-            # Update pot from line if available
-            pot_m = re.search(r'\)\s*$', line)
+            # Parse pot from "Flop [cards], BotA (X), BotB (Y)" — X+Y = total chips spent
+            pot_m = re.search(r'\((\d+)\)[^,]+,\s+\S+\s+\((\d+)\)', line)
+            if pot_m:
+                current['pot'] = int(pot_m.group(1)) + int(pot_m.group(2))
             continue
 
         # Bids

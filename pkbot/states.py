@@ -100,7 +100,7 @@ class GameState(namedtuple('_GameState', ['dealer', 'street', 'auction', 'bids',
             return GameState(self.dealer + 1, self.street, self.auction, self.bids, self.wagers, self.chips, self.hands, self.opp_hands, self.community_cards, self)
         
         if isinstance(action, ActionBid):
-            self.bids[active] = -1
+            self.bids[active] = action.amount
             if None not in self.bids: 
                 if self.bids[0] == self.bids[1]:
                     state = GameState(1, self.street, False, self.bids, self.wagers, self.chips, self.hands, self.opp_hands, self.community_cards, self)

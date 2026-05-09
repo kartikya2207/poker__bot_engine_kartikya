@@ -290,7 +290,7 @@ class Player(BaseBot):
         pot = max(cs.pot, 40)
         ctc = cs.cost_to_call
         mn, mx = cs.raise_bounds if cs.can_act(ActionRaise) else (0, 0)
-        def shove(): return ActionRaise(mx) if cs.can_act(ActionRaise) else ActionFold()
+        def shove(): return ActionRaise(mx) if cs.can_act(ActionRaise) else ActionCall()
         def bet(r): return ActionRaise(max(mn, min(int(pot * r), mx)))
         def chk(): return ActionCheck() if cs.can_act(ActionCheck) else ActionFold()
         def fold(): return ActionFold() if cs.can_act(ActionFold) else ActionCheck()
